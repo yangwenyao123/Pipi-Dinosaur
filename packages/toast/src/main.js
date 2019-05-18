@@ -1,5 +1,8 @@
-import Popup from '../../popup';
-// toast 正在优化……
+import Loading from '../../loading';
+
+import Icon from '../../icon';
+
+const STYLE = ['success', 'fail', 'loading'];
 export default({
     name: 'Toast',
     data() {
@@ -7,10 +10,18 @@ export default({
           inited: this.value
         };
     },
+    components: {
+        Loading,
+        Icon
+    },
     props: {
         value: Boolean,
         title: String,
         message: String,
+        type: {
+            type: String,
+            default: 'text'
+        },
     },
     watch: {
         value(val) {
@@ -22,12 +33,33 @@ export default({
     methods: {
     },
     render(h) {
+        const { message, type } = this;
+        const style = STYLE.indexOf(type) !== -1 ? 'default' : type;
+
+        console.log(type);
+
+        function Content() {
+            switch (style) {
+                case 'text':
+                    return <div>{message}</div>;
+                case 'html':
+                    return <div domPropsInnerHTML={message} />;
+                default:
+                    return [
+                        type === 'loading' ? (
+                            <Loading />
+                        ) : (
+                            <Icon icon={'icon-' + 'close'} style={"font-size: 52px;margin-top: 16px;margin-bottom: 10px;color: #fff"}/>
+                        ),
+                        <div>{message}</div>
+                    ];
+            }
+        };
+
         return(
-            <Popup value={this.value} position="center">
-                <div class="weui-dialog">
-                asdasd
-                </div>
-            </Popup>
+            <div class="weui-toast">
+                {Content()}
+            </div>
         )
     }
 });

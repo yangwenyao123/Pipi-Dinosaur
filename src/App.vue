@@ -61,6 +61,9 @@ export default {
       return this.$store.state.routeInfo;
     },
   },
+  created() {
+    this.$toast.fail('111');
+  },
   methods: {
     back() {
       window.history.back(-1);
