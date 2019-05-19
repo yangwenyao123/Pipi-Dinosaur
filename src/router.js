@@ -134,6 +134,22 @@ export default new Router({
                 title: '留言'
             },
             component: () => import ('./views/Feedback.vue')
+        },
+        {
+            path: '/demo/dialog',
+            name: 'Dialog',
+            meta: {
+                title: '确认框'
+            },
+            component: () => import ('./views/Dialog.vue')
+        },
+        {
+            path: '/demo/picker',
+            name: 'Picker',
+            meta: {
+                title: '选择框'
+            },
+            component: () => import ('./views/Picker.vue')
         }
     ]
 })

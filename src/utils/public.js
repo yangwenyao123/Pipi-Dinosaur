@@ -7,7 +7,7 @@ export function gotoUrl(url) {
 
 function getData (data){
     return request({
-        url: 'http://5.180.40.89:8020/admin/message/add',
+        // url: 'http:///admin/message/add',
         method: 'post',
         data
     });

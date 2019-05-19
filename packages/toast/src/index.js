@@ -23,7 +23,6 @@ let multiple = false;
 let currentOptions = { ...defaultOptions };
 
 function createInstance() {
-  /* istanbul ignore if */
   if (isServer) {
     return {};
   }

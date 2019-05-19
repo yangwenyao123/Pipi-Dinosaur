@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    
     <NavBar :title="routeInfo.meta.title" :left-arrow="isBack" @left-click="back"/>
     <router-view/>
     <Tabbar v-if="show" v-model="active" fixed :activeColor="'text-green'" :bgColor="'bg-black'">
@@ -62,7 +61,6 @@ export default {
     },
   },
   created() {
-    this.$toast.fail('111');
   },
   methods: {
     back() {

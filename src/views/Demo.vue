@@ -63,7 +63,7 @@ export default {
         }, {
           icon: 'icon-question',
           name: '确认框',
-          url: '/demo/diglog'
+          url: '/demo/dialog'
         }, {
           icon: 'icon-pick',
           name: '选择器',

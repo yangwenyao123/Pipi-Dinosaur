@@ -53,7 +53,7 @@ export default({
     ];
     return(
       <div class={classed}>
-        <div class="cu-dialog" style={styleed}>
+        <div style={styleed}>
         {$slots.default}
         </div>
       </div>

@@ -1,6 +1,9 @@
 import Loading from '../../loading';
-
 import Icon from '../../icon';
+export function isDef(value) {
+    return value !== undefined && value !== null;
+}
+
 
 const STYLE = ['success', 'fail', 'loading'];
 export default({
@@ -28,6 +31,9 @@ export default({
           this.inited = this.inited || this.value;
         }
     },
+    created(){
+        console.log(isDef);
+    },
     computed: {
     },
     methods: {
@@ -35,31 +41,29 @@ export default({
     render(h) {
         const { message, type } = this;
         const style = STYLE.indexOf(type) !== -1 ? 'default' : type;
-
-        console.log(type);
-
         function Content() {
             switch (style) {
                 case 'text':
-                    return <div>{message}</div>;
+                    return <div class={'toast--text'}>{message}</div>;
                 case 'html':
                     return <div domPropsInnerHTML={message} />;
                 default:
                     return [
                         type === 'loading' ? (
-                            <Loading />
+                            <Loading class={'van-icon'} type="icon-loading" size="48px" />
                         ) : (
-                            <Icon icon={'icon-' + 'close'} style={"font-size: 52px;margin-top: 16px;margin-bottom: 10px;color: #fff"}/>
+                            <Icon class={'van-icon'} icon={'icon-' + type } />
                         ),
-                        <div>{message}</div>
+                        isDef(message) && <div class={'toast__text'}>{message}</div>
                     ];
             }
         };
-
         return(
-            <div class="weui-toast">
-                {Content()}
-            </div>
+            <Popup value={this.value} position="center">
+                <div class={['weui-toast', { 'toast__defalut': style === 'default'}]} >
+                    {Content()}
+                </div>
+            </Popup>
         )
     }
 });
