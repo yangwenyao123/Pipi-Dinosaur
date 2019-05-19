@@ -37,8 +37,7 @@ export default {
       active: 0,
       show: true,
       shows: true,
-      isBack: false,
-      columns: ['杭州', '宁波', '温州', '嘉兴', '湖州']
+      isBack: false
     }
   },
   watch: {

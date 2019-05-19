@@ -15,9 +15,8 @@
 
 ![预览](https://raw.githubusercontent.com/martin-yin/Pipi-Dinosaur/master/2.png)
 
-项目目前已上线，代码正在优化，也在加新的功能！请期待。
-尽量月底全部搞定，搞定之后会发到npm上！
-
+####  css 部分我已经放飞自我了……等待优化吧……一直都是挺忙的。没时间写这个项目。
+####  我得建议是你可以看看我封装的组件，css就别吐槽了。
 ```
 
 git clone https://github.com/martin-yin/vue-color-ui.git
