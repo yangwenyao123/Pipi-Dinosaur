@@ -59,8 +59,6 @@ export default {
       return this.$store.state.routeInfo;
     },
   },
-  created() {
-  },
   methods: {
     back() {
       window.history.back(-1);

@@ -50,9 +50,9 @@ export default({
                 default:
                     return [
                         type === 'loading' ? (
-                            <Loading class={'van-icon'} type="icon-loading" size="48px" />
+                            <Loading class={'icon'} type="icon-loading" size="48px" />
                         ) : (
-                            <Icon class={'van-icon'} icon={'icon-' + type } />
+                            <Icon class={'icon'} icon={'icon-' + type } />
                         ),
                         isDef(message) && <div class={'toast__text'}>{message}</div>
                     ];

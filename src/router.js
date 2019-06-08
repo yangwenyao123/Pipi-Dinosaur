@@ -115,7 +115,7 @@ export default new Router({
             path: '/Introduce',
             name: 'Introduce',
             meta: {
-                title: ''
+                title: '介绍'
             },
             component: () => import ('./views/Introduce.vue')
         },
@@ -123,17 +123,9 @@ export default new Router({
             path: '/demo/switchs',
             name: 'Introduce',
             meta: {
-                title: ''
+                title: '开关'
             },
             component: () => import ('./views/Switchs.vue')
-        },
-        {
-            path: '/Feedback',
-            name: 'Feedback',
-            meta: {
-                title: '留言'
-            },
-            component: () => import ('./views/Feedback.vue')
         },
         {
             path: '/demo/dialog',
@@ -150,6 +142,14 @@ export default new Router({
                 title: '选择框'
             },
             component: () => import ('./views/Picker.vue')
+        },
+        {
+            path: '/demo/toast',
+            name: 'Toast',
+            meta: {
+                title: '弹出窗'
+            },
+            component: () => import ('./views/Toast.vue')
         }
     ]
 })

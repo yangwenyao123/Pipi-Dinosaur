@@ -46,11 +46,6 @@ function transformer(options) {
 function Toast(options = {}) {
   const toast = createInstance();
 
-  // should add z-index if previous toast has not disappeared
-  if (toast.value) {
-    toast.updateZIndex();
-  }
-
   options = {
     ...currentOptions,
     ...parseOptions(options),

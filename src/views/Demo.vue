@@ -68,6 +68,10 @@ export default {
           icon: 'icon-pick',
           name: '选择器',
           url: '/demo/picker'
+        }, {
+          icon: 'icon-pick',
+          name: '弹出窗',
+          url: '/demo/toast'
         }
       ]
     }
@@ -83,13 +87,6 @@ export default {
 <style lang="less" scoped>
 .demo{
   background: #f1f1f1 !important;
-  .cu-list{
-    .cu-item{
-      span{
-        // color: #8dc63f !important;
-      }
-    }
-  }
 }
 
 </style>
