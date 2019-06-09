@@ -32,10 +32,10 @@ export default {
   }
 }
 </script>
-<style lang="less" scoped>
+<style lang="scss" scoped>
 #home{
   .logo{
-    text-align: center;
+    text-align: center
   }
 }
 </style>

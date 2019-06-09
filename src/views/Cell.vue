@@ -16,7 +16,7 @@
   </div>
 </template>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 #cell{
   padding-top: 30px;
 }

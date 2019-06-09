@@ -1,4 +1,4 @@
 import DiaLog from './src/index';
 
-import "./src/main.less";
+// import "./src/main.sass";
 export default DiaLog;

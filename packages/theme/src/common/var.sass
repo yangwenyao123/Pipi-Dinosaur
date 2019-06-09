@@ -1,0 +1,41 @@
+
+$color_vaue:(name: red, color: #e54d42, light: #fadbd9, gradual: linear-gradient(45deg, #f43f3b, #ec008c)),
+            (name: orange, color: #f37b1d, light: #fde6d2, gradual: linear-gradient(45deg, #ff9700, #ed1c24)),
+            (name: yellow, color: #fbbd08, light: #fef2ce, gradual: none),
+            (name: olive, color: #8dc63f, light: #e8f4d9, gradual: none),
+            (name: green, color: #39b54a, light: #d7f0db, gradual: linear-gradient(45deg, #39b54a, #8dc63f)),
+            (name: cyan, color: #1cbbb4, light: #d2f1f0, gradual: none),
+            (name: blue, color: #0081ff, light: #cce6ff, gradual: linear-gradient(45deg, #0081ff, #1cbbb4)),
+            (name: purple, color: #6739b6, light: #e1d7f0, gradual: linear-gradient(45deg, #9000ff, #5e00ff)),
+            (name: mauve, color: #9c26b0, light: #ebd4ef, gradual: none),
+            (name: pink, color: #e03997, light: #f9d7ea, gradual: linear-gradient(45deg, #ec008c, #6739b6)),
+            (name: brown, color: #a5673f, light: #ede1d9, gradual: none),
+            (name: grey, color: #8799a3, light: #e7ebed, gradual: none),
+            (name: gray, color: #f0f0f0, light: #f1f1f1, gradual: none),
+            (name: black, color: #333, light: none, gradual: none),
+            (name: white, color: #fff, light: none, gradual: none);
+
+@each $item in $color_vaue {
+    $name: map-get($item, name);
+    .line-#{$name}, .lines-#{$name}, {
+        &:after{
+            border-color: map-get($item, color);
+        }
+    }
+    .bg-gradual-#{$name} {
+        background-image: map-get($item, gradual);
+    }
+    .bg-#{$name} {
+        border-color: map-get($item, color);
+        &.light{
+            color: map-get($item, color);
+            background: map-get($item, light);
+        }
+    }
+    .bg-gradual-#{$name} {
+        color: #fff;
+        background-image: map-get($item, gradual);
+    }
+}
+
+
