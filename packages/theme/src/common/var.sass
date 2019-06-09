@@ -1,26 +1,49 @@
 
-$color_vaue:(name: red, color: #e54d42, light: #fadbd9, gradual: linear-gradient(45deg, #f43f3b, #ec008c)),
-            (name: orange, color: #f37b1d, light: #fde6d2, gradual: linear-gradient(45deg, #ff9700, #ed1c24)),
-            (name: yellow, color: #fbbd08, light: #fef2ce, gradual: none),
-            (name: olive, color: #8dc63f, light: #e8f4d9, gradual: none),
-            (name: green, color: #39b54a, light: #d7f0db, gradual: linear-gradient(45deg, #39b54a, #8dc63f)),
-            (name: cyan, color: #1cbbb4, light: #d2f1f0, gradual: none),
-            (name: blue, color: #0081ff, light: #cce6ff, gradual: linear-gradient(45deg, #0081ff, #1cbbb4)),
-            (name: purple, color: #6739b6, light: #e1d7f0, gradual: linear-gradient(45deg, #9000ff, #5e00ff)),
-            (name: mauve, color: #9c26b0, light: #ebd4ef, gradual: none),
-            (name: pink, color: #e03997, light: #f9d7ea, gradual: linear-gradient(45deg, #ec008c, #6739b6)),
-            (name: brown, color: #a5673f, light: #ede1d9, gradual: none),
-            (name: grey, color: #8799a3, light: #e7ebed, gradual: none),
-            (name: gray, color: #f0f0f0, light: #f1f1f1, gradual: none),
-            (name: black, color: #333, light: none, gradual: none),
-            (name: white, color: #fff, light: none, gradual: none);
+/* -- 浮动 --  */
+.cf::after,
+.cf::before {
+    content: " ";
+    display: table;
+}
+
+.cf::after {
+    clear: both;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+$shadowSize: 3px 3px 4px;
+
+/* -- 各种颜色类 --  */  
+$color_vaue:(name: red, color: #e54d42, light: #fadbd9, gradual: linear-gradient(45deg, #f43f3b, #ec008c), shadow: rgba(204, 69, 59, 0.2)),
+            (name: orange, color: #f37b1d, light: #fde6d2, gradual: linear-gradient(45deg, #ff9700, #ed1c24), shadow: rgba(217, 109, 26, 0.2)),
+            (name: yellow, color: #fbbd08, light: #fef2ce, gradual: none, shadow: rgba(224, 170, 7, 0.2)),
+            (name: olive, color: #8dc63f, light: #e8f4d9, gradual: none, shadow: rgba(124, 173, 55, 0.2)),
+            (name: green, color: #39b54a, light: #d7f0db, gradual: linear-gradient(45deg, #39b54a, #8dc63f), shadow: rgba(48, 156, 63, 0.2)),
+            (name: cyan, color: #1cbbb4, light: #d2f1f0, gradual: none, shadow: rgba(28, 187, 180, 0.2)),
+            (name: blue, color: #0081ff, light: #cce6ff, gradual: linear-gradient(45deg, #0081ff, #1cbbb4), shadow: rgba(0, 102, 204, 0.2)),
+            (name: purple, color: #6739b6, light: #e1d7f0, gradual: linear-gradient(45deg, #9000ff, #5e00ff), shadow: rgba(88, 48, 156, 0.2)),
+            (name: mauve, color: #9c26b0, light: #ebd4ef, gradual: none, shadow: rgba(133, 33, 150, 0.2)),
+            (name: pink, color: #e03997, light: #f9d7ea, gradual: linear-gradient(45deg, #ec008c, #6739b6), shadow: rgba(199, 50, 134, 0.2)),
+            (name: brown, color: #a5673f, light: #ede1d9, gradual: none, shadow: rgba(140, 88, 53, 0.2)),
+            (name: grey, color: #8799a3, light: #e7ebed, gradual: none, shadow: rgba(114, 130, 138, 0.2)),
+            (name: gray, color: #f0f0f0, light: #f1f1f1, gradual: none, shadow: rgba(114, 130, 138, 0.2)),
+            (name: black, color: #333, light: none, gradual: none, shadow: rgba(26, 26, 26, 0.2)),
+            (name: white, color: #fff, light: none, gradual: none, shadow: 6rpx 6rpx 8rpx);
 
 @each $item in $color_vaue {
     $name: map-get($item, name);
-    .line-#{$name}, .lines-#{$name}, {
+    .line-#{$name}, .lines-#{$name}, text-#{$name} {
         &:after{
             border-color: map-get($item, color);
         }
+        color: map-get($item, color);
     }
     .bg-gradual-#{$name} {
         background-image: map-get($item, gradual);
@@ -36,6 +59,128 @@ $color_vaue:(name: red, color: #e54d42, light: #fadbd9, gradual: linear-gradient
         color: #fff;
         background-image: map-get($item, gradual);
     }
+    .shadow[class*="-#{$name}"] {
+        box-shadow:  $shadowSize map-get($item, shadow);
+    }
+    .text-shadow[class*="-#{$name}"] {
+	    text-shadow: $shadowSize map-get($item, shadow);
+    }
+}
+
+/*  -- 内外边距 -- */
+
+$space_size: (name: xs, value: 5px),
+       (name: sm, value: 10px),
+       (name: default, value: 15px),
+       (name: lg, value: 20px),
+       (name: xl, value: 25px);
+
+$space_direction: (
+    bottom,
+    top,
+    left,
+    right,
+    lr,
+    tb
+);
+@each $item in $space_size {
+    $name: map-get($item, name);
+    .margin-#{$name} {
+        margin: map-get($item, value);
+    }
+    .padding-#{$name} {
+        padding: map-get($item, value);
+    }
+    @each $direction in $space_direction {
+        .margin-#{$direction}-#{$name} {
+            @if $direction == tb {
+                margin-top:  map-get($item, value);
+                margin-bottom: map-get($item, value);
+            } @else if $direction == lr{
+                margin-left:  map-get($item, value);
+                margin-right: map-get($item, value);
+            } @else {
+                margin-#{$direction}:  map-get($item, value);
+            }
+        }
+        .padding-#{$direction}-#{$name} {
+            @if $direction == tb {
+                padding-top:  map-get($item, value);
+                padding-bottom: map-get($item, value);
+            } @else if $direction == lr{
+                padding-left:  map-get($item, value);
+                padding-right: map-get($item, value);
+            } @else {
+                padding-#{$direction}:  map-get($item, value);
+            }
+        }
+        
+    }
 }
 
 
+/* ==================
+          文本
+ ==================== */
+
+
+
+$font_size: (name: xs, value: 10px),
+       (name: sm, value: 12px),
+       (name: default, value: 14px),
+       (name: lg, value: 16px),
+       (name: xl, value: 18px),
+       (name: xxl, value: 22px),
+       (name: sl, value: 40px),
+       (name: xsl, value: 60px);
+
+@each $item in $font_size {
+    $name: map-get($item, name);
+    .text-#{$name} {
+        font-size:  map-get($item, value);
+    }
+}
+
+.text-Abc {
+    text-transform: Capitalize;
+}
+
+.text-ABC {
+    text-transform: Uppercase;
+}
+
+.text-abc {
+    text-transform: Lowercase;
+}
+
+.text-price::before {
+    content: "¥";
+    font-size: 80%;
+    margin-right: 4px;
+}
+
+.text-cut {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-content {
+    line-height: 1.6;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
