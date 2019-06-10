@@ -37,10 +37,3 @@
     }
 }
 
-.foot {
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    z-index: 1024;
-    @include black-box-shadow;
-}
