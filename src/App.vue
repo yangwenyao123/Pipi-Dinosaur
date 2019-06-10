@@ -61,6 +61,10 @@ body
   margin-bottom: 80px
 
 @import 'assets/app.css'
+@import '../packages/theme/src/common/var.scss'
+
+@import '../packages/theme/src/tabbar.scss'
+
 
 .swipe-item 
   float: left

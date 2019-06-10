@@ -1,0 +1,149 @@
+.tabbar {
+    padding: 0;
+    &.shadow {
+        box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.1);
+    }
+    .action {
+        font-size: 11px;
+        position: relative;
+        flex: 1;
+        text-align: center;
+        padding: 0;
+        display: block;
+        height: auto;
+        line-height: 1;
+        margin: 0;
+        background-color: inherit;
+        overflow: initial;
+        &[class*="icon"] {
+            width: 50px;
+            position: relative;
+            display: block;
+            height: auto;
+            margin: 0 auto 5px;
+            text-align: center;
+            font-size: 20px;
+        }
+    }
+}
+
+
+// .tabbar 
+
+// .cu-bar.tabbar.shop .action {
+//     width: 140px;
+//     flex: initial;
+// }
+
+// .cu-bar.tabbar .action.add-action {
+//     position: relative;
+//     z-index: 2;
+//     padding-top: 50px;
+// }
+
+// .cu-bar.tabbar .action.add-action [class*="icon"] {
+//     position: absolute;
+//     width: 70px;
+//     z-index: 2;
+//     height: 70px;
+//     border-radius: 50%;
+//     line-height: 70px;
+//     font-size: 50px;
+//     top: -35px;
+//     left: 0;
+//     right: 0;
+//     margin: auto;
+//     padding: 0;
+// }
+
+// .cu-bar.tabbar .action.add-action::after {
+//     content: "";
+//     position: absolute;
+//     width: 100px;
+//     height: 100px;
+//     top: -50px;
+//     left: 0;
+//     right: 0;
+//     margin: auto;
+//     box-shadow: 0 -3px 8px rgba(0, 0, 0, 0.08);
+//     border-radius: 50px;
+//     background-color: inherit;
+//     z-index: 0;
+// }
+
+// .cu-bar.tabbar .action.add-action::before {
+//     content: "";
+//     position: absolute;
+//     width: 100px;
+//     height: 30px;
+//     bottom: 30px;
+//     left: 0;
+//     right: 0;
+//     margin: auto;
+//     background-color: inherit;
+//     z-index: 1;
+// }
+
+// .cu-bar.tabbar .btn-group {
+//     flex: 1;
+//     display: flex;
+//     justify-content: space-around;
+//     align-items: center;
+//     padding: 0 5px;
+// }
+
+// .cu-bar.tabbar button.action::after {
+//     border: 0;
+// }
+
+// .cu-bar.tabbar .action .icon-cu-image {
+//     margin: 0 auto;
+// }
+
+// .cu-bar.tabbar .action .icon-cu-image img {
+//     width: 50px;
+//     height: 50px;
+//     display: inline-block;
+// }
+
+// .cu-bar.tabbar .submit {
+//     align-items: center;
+//     display: flex;
+//     justify-content: center;
+//     text-align: center;
+//     position: relative;
+//     flex: 2;
+//     align-self: stretch;
+// }
+
+// .cu-bar.tabbar .submit:last-child {
+//     flex: 2.6;
+// }
+
+// .cu-bar.tabbar .submit+.submit {
+//     flex: 2;
+// }
+
+// .cu-bar.tabbar.border .action::before {
+//     content: " ";
+//     width: 200%;
+//     height: 200%;
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     transform: scale(0.5);
+//     transform-origin: 0 0;
+//     border-right: 1px solid rgba(0, 0, 0, 0.1);
+//     z-index: 3;
+// }
+
+// .cu-bar.tabbar.border .action:last-child:before {
+//     display: none;
+// }
+
+// .cu-bar.tabbar img {
+//     width: 1.333333rem/* 50/37.5 */
+//     ;
+//     height: 1.333333rem/* 50/37.5 */
+//     ;
+// }

@@ -1,4 +1,29 @@
 
+@mixin black-box-shadow {
+    box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.1);
+}
+@mixin center-text-align {
+    text-align: center;
+}
+@mixin relative-position {
+    position: relative;
+}
+@mixin block-display {
+    display: block;
+}
+@mixin relative-block{
+    @include relative-position;
+    @include block-display;
+}
+
+.foot {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 1024;
+    @include black-box-shadow;
+}
+
 /* -- 浮动 --  */
 .cf::after,
 .cf::before {
@@ -18,6 +43,11 @@
     float: right;
 }
 
+
+
+$initial: initial;
+
+
 $shadowSize: 3px 3px 4px;
 
 /* -- 各种颜色类 --  */  
@@ -33,7 +63,7 @@ $color_vaue:(name: red, color: #e54d42, light: #fadbd9, gradual: linear-gradient
             (name: pink, color: #e03997, light: #f9d7ea, gradual: linear-gradient(45deg, #ec008c, #6739b6), shadow: rgba(199, 50, 134, 0.2)),
             (name: brown, color: #a5673f, light: #ede1d9, gradual: none, shadow: rgba(140, 88, 53, 0.2)),
             (name: grey, color: #8799a3, light: #e7ebed, gradual: none, shadow: rgba(114, 130, 138, 0.2)),
-            (name: gray, color: #f0f0f0, light: #f1f1f1, gradual: none, shadow: rgba(114, 130, 138, 0.2)),
+            (name: gray, color: gray, light: #f1f1f1, gradual: none, shadow: rgba(114, 130, 138, 0.2)),
             (name: black, color: #333, light: none, gradual: none, shadow: rgba(26, 26, 26, 0.2)),
             (name: white, color: #fff, light: none, gradual: none, shadow: 6rpx 6rpx 8rpx);
 
@@ -59,13 +89,16 @@ $color_vaue:(name: red, color: #e54d42, light: #fadbd9, gradual: linear-gradient
         color: #fff;
         background-image: map-get($item, gradual);
     }
-    .shadow[class*="-#{$name}"] {
+    .shadow[class*='-#{$name}'] {
         box-shadow:  $shadowSize map-get($item, shadow);
     }
-    .text-shadow[class*="-#{$name}"] {
+    .text-shadow[class*='-#{$name}'] {
 	    text-shadow: $shadowSize map-get($item, shadow);
     }
-}
+    .text-#{$name} {
+        color: map-get($item, color);
+    }
+} 
 
 /*  -- 内外边距 -- */
 

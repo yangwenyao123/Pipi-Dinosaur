@@ -1426,7 +1426,7 @@ button.icon.lg {
           操作条
  ==================== */
 
-.cu-bar {
+/* .cu-bar {
     display: flex;
     position: relative;
     align-items: center;
@@ -1444,7 +1444,7 @@ button.icon.lg {
 
 .cu-bar .action.border-title {
     position: relative;
-    top: -5px;
+     top: -5px;
 }
 
 .cu-bar .action.border-title p[class*="bg-"]:last-child {
@@ -1759,9 +1759,9 @@ button.icon.lg {
 }
 
 .cu-bar.tabbar img {
-    width: 1.333333rem/* 50/37.5 */
+    width: 1.333333rem
     ;
-    height: 1.333333rem/* 50/37.5 */
+    height: 1.333333rem
     ;
 }
 
@@ -1797,7 +1797,7 @@ button.icon.lg {
 
 .cu-bar.input .action:first-child [class*="icon"] {
     margin-left: 0px;
-}
+} */
 
 
 /* 
