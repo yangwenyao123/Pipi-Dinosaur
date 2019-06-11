@@ -1,13 +1,9 @@
-.cu-bar {
+.tabbar {
     display: flex;
-    @include relative-position;
+    position: relative;
     align-items: center;
     min-height: 50px;
     justify-content: space-between;
-}
-
-.tabbar {
-    @extend .cu-bar;
     @extend .foot;
     padding: 0;
     &.shadow {

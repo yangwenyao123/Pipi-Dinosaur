@@ -40,7 +40,7 @@ export default {
         </div>
       );
       return (
-        <div class="cu-bar bg-green">
+        <div class="nav-bar bg-green">
             {leftBar}
             {content}
             {rightBar}

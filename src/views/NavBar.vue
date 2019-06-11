@@ -1,7 +1,7 @@
 <template>
   <div class="navbar">
     <NavBar title="首页" left-arrow  rightText="12312" @left-click="back" @right-click="menu">
-        <div slot="right">
+        <div class="action" slot="right">
             <Icon icon="icon-cascades" color="text-white" />
         </div>
     </NavBar>

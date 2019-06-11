@@ -1,0 +1,77 @@
+/* ==================
+         时间轴
+ ==================== */
+
+ .cu-timeline {
+    display: block;
+    background: #fff;
+    .cu-time {
+        width: 130px;
+        text-align: left;
+        text-indent: 1rem;
+        padding: 10px 0;
+        font-size: 13px;
+        color: #888;
+        display: block;
+    }
+    &>.cu-item {
+        padding: 15px 15px 15px 60px;
+        position: relative;
+        display: block;
+        z-index: 0;
+    }
+    &>.cu-item:not([class*="text-"]) {
+        color: #ccc;
+    }
+    &>.cu-item::after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 1px;
+        background: #ddd;
+        left: 30px;
+        height: 100%;
+        top: 0;
+        z-index: 8;
+    }
+    &>.cu-item::before {
+        font-family: "iconfont";
+        display: block;
+        position: absolute;
+        top: 18px;
+        z-index: 9;
+        background: #fff;
+        width: 25px;
+        height: 25px;
+        text-align: center;
+        border: none;
+        line-height: 25px;
+        left: 18px;
+    }
+    &>.cu-item:not([class*="icon-"])::before {
+        content: "\e763";
+    }
+    &>.cu-item[class*="icon"]::before {
+        background: #fff;
+        width: 25px;
+        height: 25px;
+        text-align: center;
+        border: none;
+        line-height: 25px;
+        left: 18px;
+    }
+    &>.cu-item>.content {
+        padding: 15px;
+        border-radius: 3px;
+        font-size: 14px;
+        display: block;
+        line-height: 1.6;
+    }
+    &>.cu-item>.content:not([class*="bg-"]) {
+        background: #f1f1f1;
+        color: #666;
+    }
+    &>.cu-item>.content+.content {
+        margin-top: 10px;
+    }
+}

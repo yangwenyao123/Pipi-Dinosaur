@@ -61,9 +61,7 @@ body
   margin-bottom: 80px
 
 @import 'assets/app.css'
-@import '../packages/theme/src/common/var.scss'
-
-@import '../packages/theme/src/tabbar.scss'
+@import '../packages/theme/index.scss'
 
 
 .swipe-item 

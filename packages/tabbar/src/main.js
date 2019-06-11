@@ -44,7 +44,7 @@ export default {
         'foot': fixed,
       },
       bgColor,
-      'cu-bar tabbar'
+      'tabbar'
     ]
     return (
       <div class={classed}>
