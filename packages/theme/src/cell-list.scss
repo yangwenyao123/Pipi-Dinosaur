@@ -18,22 +18,22 @@
         @include hidden-overflow;
         background: $color-fff;
         padding: 0 15px;
+        &:after {
+            content: "";
+            width: 200%;
+            height: 200%;
+            @include absolute-position;
+            top: 0;
+            left: 0;
+            border-radius: $inherit;
+            transform: scale(0.5);
+            transform-origin: 0 0;
+            pointer-events: $none;
+            @include box-border;
+            border-bottom: 0.5px solid #ddd;
+        }
     }
-    &.menu>.cu-item::after {
-        content: "";
-        width: 200%;
-        height: 200%;
-        @include absolute-position;
-        top: 0;
-        left: 0;
-        border-radius: $inherit;
-        transform: scale(0.5);
-        transform-origin: 0 0;
-        pointer-events: $none;
-        @include box-border;
-        border-bottom: $border(1px, solid, $color-ddd);
-    }
-    &.menu.sm-border>.cu-item::after {
+    &.menu.sm-border>.cu-item:after {
         width: calc(200% - 120px);
         left: 7px;
     }

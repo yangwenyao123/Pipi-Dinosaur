@@ -134,9 +134,9 @@ $color_vaue:(name: red, color: #e54d42, light: #fadbd9, gradual: linear-gradient
 
 @each $item in $color_vaue {
     $name: map-get($item, name);
-    .line-#{$name}, .lines-#{$name}, text-#{$name} {
-        &:after{
-            border-color: map-get($item, color);
+    .line-#{$name}, .lines-#{$name}, .text-#{$name} {
+        &::after{
+            border: 1px solid map-get($item, color);
         }
         color: map-get($item, color);
     }
@@ -164,6 +164,8 @@ $color_vaue:(name: red, color: #e54d42, light: #fadbd9, gradual: linear-gradient
         color: map-get($item, color);
     }
 } 
+
+
 
 /*  -- 内外边距 -- */
 
