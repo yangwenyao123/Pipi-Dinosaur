@@ -1,4 +1,3 @@
-
 @mixin black-box-shadow {
     box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.1);
 }
@@ -15,7 +14,15 @@
     display: block;
 }
 
-@mixin absolute-postion {
+@mixin inline-block-display {
+    display: inline-block;
+}
+
+@mixin inline-flex-display{
+    display: inline-flex;
+}
+
+@mixin absolute-position {
     position: absolute;
 }
 
@@ -23,6 +30,41 @@
     @include relative-position;
     @include block-display;
 }
+
+@mixin flex-display {
+    display: flex;
+}
+
+@mixin wrap-flex-wrap {
+    flex-wrap: wrap;
+}
+
+@mixin hidden-overflow {
+    overflow: hidden;
+}
+
+@mixin center-align-items {
+    align-items: center;
+}
+
+@mixin center-justify-content {
+    justify-content: center;
+}
+
+@mixin middle-vertical-align {
+    vertical-align: middle;
+}
+
+$color-fff: #fff;
+$color-f1f1f1: #f1f1f1;
+$color-666: #666;
+$color-333: #333;
+$color-ccc: #ccc;
+$color-ddd: #ddd;
+$color-888: #888;
+$color-aaa: #aaa;
+$color-fcf7e9: #fcf7e9;
+$color-f0f0f0: #f0f0f0;
 
 .foot {
     width: 100%;
@@ -36,6 +78,7 @@
     display: block;
 }
 
+$none: none;
 
 /* -- bar -- */
 .cu-bar {
@@ -177,9 +220,6 @@ $space_direction: (
 /* ==================
           文本
  ==================== */
-
-
-
 $font_size: (name: xs, value: 10px),
        (name: sm, value: 12px),
        (name: default, value: 14px),
@@ -240,7 +280,6 @@ $font_size: (name: xs, value: 10px),
     text-align: right;
 }
 
-
 /* ==================
           边框
  ==================== */
@@ -270,7 +309,7 @@ $font_size: (name: xs, value: 10px),
         content: " ";
         width: 200%;
         height: 200%;
-        @include absolute-postion;
+        @include absolute-position;
         top: 0;
         left: 0;
         border-radius: $inherit;
@@ -281,70 +320,70 @@ $font_size: (name: xs, value: 10px),
     }
 }
 
+@function border($width: 1px, $style: solid, $color: rgba(0, 0, 0, 0.1)) {
+    @return $width $style $color;
+}
 .solid::after {
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: #{border()};
 }
 
 .solid-top::after {
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-top:  #{border()};
 }
 
 .solid-right::after {
-    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    border-right:  #{border()};
 }
 
 .solid-bottom::after {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom:  #{border()};
 }
 
 .solid-left::after {
-    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    border-left:  #{border()};
 }
 
 .solids::after {
-    border: 2px solid #eee;
+    border: #{border(2px, solid, #eee)};
 }
 
 .solids-top::after {
-    border-top: 2px solid #eee;
+    border-top: #{border(2px, solid, #eee)};
 }
 
 .solids-right::after {
-    border-right: 4px solid #eee;
+    border-right: #{border(4px, solid, #eee)};
 }
 
 .solids-bottom::after {
-    border-bottom: 4px solid #eee;
+    border-bottom: #{border(4px, solid, #eee)};
 }
 
 .solids-left::after {
-    border-left: 4px solid #eee;
+    border-left: #{border(4px, solid, #eee)};
 }
 
 .dashed::after {
-    border: 1px dashed #ddd;
+    border: #{border(1px, dashed, #ddd)};
 }
 
 .dashed-top::after {
-    border-top: 1px dashed #ddd;
+    border-top:  #{border(1px, dashed, #ddd)};
 }
 
 .dashed-right::after {
-    border-right: 1px dashed #ddd;
+    border-right:  #{border(1px, dashed, #ddd)};
 }
 
 .dashed-bottom::after {
-    border-bottom: 1px dashed #ddd;
+    border-bottom:  #{border(1px, dashed, #ddd)};
 }
 
 .dashed-left::after {
-    border-left: 1px dashed #ddd;
+    border-left:  #{border(1px, dashed, #ddd)};
 }
 
-
-
 /*  -- flex弹性布局 -- */
-
 .flex {
     display: flex;
 }
@@ -445,106 +484,141 @@ $font_size: (name: xs, value: 10px),
     justify-content: space-around;
 }
 
-
 /* grid布局 */
 
+@function calcs($width, $number) {
+    @return calc((100% - $width)/$number);
+}
+
 .grid {
-    display: flex;
-    flex-wrap: wrap;
+    @include flex-display;
+    @include wrap-flex-wrap;
+    &.grid-square {
+        @include hidden-overflow;
+    }
+    &.grid-square .cu-tag {
+        @include absolute-position;
+        right: 0;
+        top: 0;
+        border-bottom-left-radius: 6px;
+    }
+    &.grid-square>div>text[class*="icon"] {
+        font-size: 26px;
+        @include absolute-position;
+        color: #aaa;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        @include flex-display;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    &.grid-square>div {
+        margin-right: 20px;
+        margin-bottom: 20px;
+        border-radius: 6px;
+        @include relative-position;
+        @include hidden-overflow;
+    }
+    &.col-1.grid-square>div {
+        padding-bottom: 100%;
+        height: 0;
+        margin-right: 0;
+    }
+    &.col-2.grid-square>div {
+        padding-bottom: #{calcs(20px, 2)};
+        height: 0;
+        width: #{calcs(20px, 2)};
+    }
+    &.col-2.grid-square>div:nth-child(2n) {
+        margin-right: 0;
+    }
+    &.col-3.grid-square>div {
+        padding-bottom: #{calcs(40px, 3)};
+        height: 0;
+        width:  #{calcs(40px, 3)};
+    }
+    &.col-3.grid-square>div:nth-child(3n) {
+        margin-right: 0;
+    }
+    &.col-4.grid-square>div {
+        padding-bottom: #{calcs(60px, 4)};
+        height: 0;
+        width: #{calcs(60px, 4)};
+    }
+    &.col-4.grid-square>div:nth-child(4n) {
+        margin-right: 0;
+    }
+    &.col-5.grid-square>div {
+        padding-bottom: #{calcs(80px, 5)};
+        height: 0;
+        width: #{calcs(80px, 5)};
+    }
+    &.col-1>div {
+        width: 100%;
+    }
+    &.col-2>div {
+        width: 50%;
+    }
+    &.col-3>div {
+        width: 33.33%;
+    }
+    &.col-4>div {
+        width: 25%;
+    }
+    &.col-5>div {
+        width: 20%;
+    }
 }
 
-.grid.grid-square {
-    overflow: hidden;
+.shadow {
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
 }
-
-.grid.grid-square .cu-tag {
-    position: absolute;
-    right: 0;
-    top: 0;
-    border-bottom-left-radius: 6px;
+.shadow-lg {
+    box-shadow: 0px 40px 100px 0px rgba(0, 0, 0, 0.07);
 }
-
-.grid.grid-square>div>text[class*="icon"] {
-    font-size: 26px;
-    position: absolute;
-    color: #aaa;
-    margin: auto;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.grid.grid-square>div {
-    margin-right: 20px;
-    margin-bottom: 20px;
-    border-radius: 6px;
+.shadow-warp {
     position: relative;
-    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    &:after {
+        right: 20px;
+        left: auto;
+        transform: rotate(3deg);
+    }
 }
-
-.grid.col-1.grid-square>div {
-    padding-bottom: 100%;
-    height: 0;
-    margin-right: 0;
-}
-
-.grid.col-2.grid-square>div {
-    padding-bottom: calc((100% - 20px)/2);
-    height: 0;
-    width: calc((100% - 20px)/2);
-}
-
-.grid.col-2.grid-square>div:nth-child(2n) {
-    margin-right: 0;
-}
-
-.grid.col-3.grid-square>div {
-    padding-bottom: calc((100% - 40px)/3);
-    height: 0;
-    width: calc((100% - 40px)/3);
-}
-
-.grid.col-3.grid-square>div:nth-child(3n) {
-    margin-right: 0;
-}
-
-.grid.col-4.grid-square>div {
-    padding-bottom: calc((100% - 60px)/4);
-    height: 0;
-    width: calc((100% - 60px)/4);
-}
-
-.grid.col-4.grid-square>div:nth-child(4n) {
-    margin-right: 0;
-}
-
-.grid.col-5.grid-square>div {
-    padding-bottom: calc((100% - 80px)/5);
-    height: 0;
-    width: calc((100% - 80px)/5);
-}
-
-.grid.col-1>div {
-    width: 100%;
-}
-
-.grid.col-2>div {
+.shadow-warp:before,
+.shadow-warp:after {
+    position: absolute;
+    content: "";
+    top: 20px;
+    bottom: 30px;
+    left: 20px;
     width: 50%;
+    box-shadow: 0 30px 20px rgba(0, 0, 0, 0.2);
+    transform: rotate(-3deg);
+    z-index: -1;
 }
 
-.grid.col-3>div {
-    width: 33.33%;
-}
 
-.grid.col-4>div {
-    width: 25%;
-}
-
-.grid.col-5>div {
-    width: 20%;
+.shadow-blur {
+    position: relative;
+    &::before {
+        content: "";
+        display: block;
+        background: inherit;
+        filter: blur(10px);
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 10px;
+        left: 10px;
+        z-index: -1;
+        opacity: 0.4;
+        transform-origin: 0 0;
+        border-radius: inherit;
+        transform: scale(1, 1);
+    }
 }

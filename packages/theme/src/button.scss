@@ -1,9 +1,9 @@
 .cu-btn {
-    position: relative;
+    @include relative-position;
     display: inline-flex;
     align-items: center;
-    outline: none;
-    border: none;
+    outline: $none;
+    border: $none;
     justify-content: center;
     @include box-border;
     padding: 0 15px;
@@ -11,16 +11,16 @@
     height: 64px;
     line-height: 1;
     @include center-text-align;
-    text-decoration: none;
+    text-decoration: $none;
     overflow: visible;
     margin-left: $initial;
     transform: translate(0px, 0px);
     margin-right: $initial;
     &:after {
-        display: none;
+        display: $none;
     }
     &::not([class*="bg-"]) {
-        background-color: #f0f0f0;
+        background-color: $color-f0f0f0;
     }
     &.sm {
         padding: 0 10px;
@@ -32,32 +32,32 @@
     }
     &[class*="line"]:after {
         content: " ";
-        display: block;
+        @include block-display;
         width: 200%;
         height: 200%;
-        position: absolute;
+        @include absolute-position;
         top: 0;
         left: 0;
-        border: 2px solid currentColor;
+        border: $border(2px, solid, currentColor);
         transform: scale(0.5);
         transform-origin: 0 0;
-        box-sizing: border-box;
+        @include box-border;
         border-radius: 12px;
         z-index: 1;
-        pointer-events: none;
+        pointer-events: $none;
     }
     &.round[class*="line"]::after {
         border-radius: 500px;
     }
     &[class*="lines"]::after {
-        border: 6px solid currentColor;
+        border: $border(6px, solid, currentColor);
     }
     &[class*="bg-"]::after {
-        display: none;
+        display: $none;
     }
     &[disabled] {
         opacity: 0.6;
-        color: #fff;
+        color: $color-fff;
     }
     &.sm {
         padding: 0 10px;
@@ -90,7 +90,7 @@
         opacity: 0.6;
     }
     &.block {
-        display: flex;
+        @include flex-display;
         width: 100%;
     }
     &.button-hover {

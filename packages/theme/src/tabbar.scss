@@ -1,7 +1,7 @@
 .tabbar {
-    display: flex;
-    position: relative;
-    align-items: center;
+    @include flex-display;
+    @include relative-position;
+    @include center-align-items;
     min-height: 50px;
     justify-content: space-between;
     @extend .foot;

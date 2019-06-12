@@ -4,33 +4,32 @@
 
  .cu-tag {
     font-size: 12px;
-    vertical-align: middle;
+    @include  middle-vertical-align;
     @include relative-position;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    @include black-box-shadow;
+    @include inline-flex-display;
+    @include center-align-items;
+    @include center-justify-content;
     padding: 0px 8px;
     height: 24px;
     font-family: Helvetica Neue, Helvetica, sans-serif;
     &:not([class*="bg"]):not([class*="line"]) {
-        background-color: #f1f1f1;
+        background-color: $color-f1f1f1;
     }
     &[class*="line-"]::after {
         content: " ";
         width: 200%;
         height: 200%;
-        @include absolute-postion;
+        @include absolute-position;
         @include black-box-shadow;
         top: 0;
         left: 0;
-        border: 2px solid currentColor;
+        border: $border(2px, solid, currentColor);
         transform: scale(0.5);
         transform-origin: 0 0;
         @include box-border;
         border-radius: $inherit;
         z-index: 1;
-        pointer-events: none;
+        pointer-events: $none;
     }
     &+.cu-tag {
         margin-left: 5px;
@@ -50,29 +49,29 @@
 
 // 胶囊
 .cu-capsule {
-    display: inline-flex;
-    vertical-align: middle;
+    @include inline-flex-display;
+    @include middle-vertical-align;
     &+.cu-capsule {
         margin-left: 5px;
     }
     .cu-tag {
         margin: 0;
         &[class*="line-"]:last-child::after {
-            border-left: 0px solid transparent;
+            border-left: $border(0px, solid, transparent);
         }
         &.cu-tag[class*="line-"]:first-child::after {
-            border-right: 0px solid transparent;
+            border-right: $border(0px, solid, transparent);
         }
         &.badge {
             background: #dd514c !important;
             border-radius: 100;
-            @include absolute-postion;
+            @include absolute-position;
             top: -5px;
             right: -5px;
             font-size: 10px;
             padding: 0px 5px;
             height: 14px;
-            color: #fff;
+            color: $color-fff;
         }
         &:empty:not([class*="icon"]) {
             padding: 0px;

@@ -3,8 +3,8 @@
  ==================== */
 .cu-list{
     &.menu {
-        display: block;
-        overflow: hidden;
+        @include block-display;
+        @include hidden-overflow;
     }
     &+.cu-list {
         margin-top: 15px;
@@ -15,33 +15,33 @@
         justify-content: space-between;
         align-items: center;
         min-height: 50px;
-        overflow: hidden;
-        background: #fff;
+        @include hidden-overflow;
+        background: $color-fff;
         padding: 0 15px;
     }
     &.menu>.cu-item::after {
         content: "";
         width: 200%;
         height: 200%;
-        position: absolute;
+        @include absolute-position;
         top: 0;
         left: 0;
-        border-radius: inherit;
+        border-radius: $inherit;
         transform: scale(0.5);
         transform-origin: 0 0;
-        pointer-events: none;
-        box-sizing: border-box;
-        border-bottom: 1px solid #ddd;
+        pointer-events: $none;
+        @include box-border;
+        border-bottom: $border(1px, solid, $color-ddd);
     }
     &.menu.sm-border>.cu-item::after {
         width: calc(200% - 120px);
         left: 7px;
     }
     &.menu>.cu-item:last-child::after {
-        border: none;
+        border: $none;
     }
     &.menu>.cu-item.cur {
-        background-color: #fcf7e9;
+        background-color: $color-fcf7e9;
     }
     &.menu-avatar>.cu-item {
         padding-left: 17px;
@@ -61,23 +61,23 @@
         background-color: transparent;
     }
     &.menu>.cu-item button.content::after {
-        display: none;
+        display: $none;
     }
     &.menu>.cu-item .content>span[class*="icon"] {
         margin-right: 5px;
-        display: inline-block;
+        @include inline-block-display;
         width: 1.6rem;
-        text-align: center;
+        @include center-text-align;
     }
     &.menu>.cu-item .content>img {
         margin-right: 5px;
-        display: inline-block;
+        @include inline-block-display;
         width: 1.6em;
         height: 1.6em;
-        vertical-align: middle;
+        @include middle-vertical-align;
     }
     &.menu-avatar>.cu-item .action {
-        text-align: center;
+        @include center-align-items;
     }
     &.menu-avatar>.cu-item .action div+div {
         margin-top: 5px;
@@ -90,35 +90,35 @@
     }
     &.menu>.cu-item.arrow::before {
         font-family: "iconfont";
-        display: block;
+        @include block-display;
         content: "\e6a3";
-        position: absolute;
+        @include absolute-position;
         font-size: 17px;
-        color: #aaa;
+        color: $color-aaa;
         line-height: 15px;
         height: 15px;
         width: 15px;
-        text-align: center;
+        @include center-align-items;
         top: 0px;
         bottom: 0;
         right: 15px;
         margin: auto;
     }
     &.menu>.cu-item .cu-avatar-group .cu-avatar {
-        border-color: #fff;
+        border-color: $color-fff;
     }
     &.card-menu {
         margin-left: 15px;
         margin-right: 15px;
         border-radius: 10px;
-        overflow: hidden;
+        @include hidden-overflow;
     }
     &.menu-avatar>.cu-item {
         padding-left: 70px;
         height: 35px;
     }
     &.menu-avatar>.cu-item>.cu-avatar {
-        position: absolute;
+        @include absolute-position;
         left: 15px;
     }
     &.menu-avatar.comment>.cu-item {
@@ -141,10 +141,10 @@
         transition: all 0.6s ease-in-out 0s;
     }
     &>.cu-item .move {
-        display: flex;
+        @include flex-display;
         width: 260px;
         height: 100%;
-        position: absolute;
+        @include absolute-position;
         right: 0;
         transform: translateX(100%);
     }
@@ -153,30 +153,30 @@
     }
     &>.cu-item .move div {
         flex: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include flex-display;
+        @include center-justify-content;
+        @include center-align-items;
     }
     &.grid {
-        text-align: center;
-        background: #fff;
+        @include center-text-align;
+        background: $color-fff;
     }
     &.grid>.cu-item {
-        display: flex;
+        @include flex-display;
         flex-direction: column;
         padding: 10px 0 15px;
-        position: relative;
+        @include relative-position;
         transition-duration: 0s;
     }
     &.grid>.cu-item [class*="icon"] {
-        display: block;
+        @include block-display;
         width: 100%;
-        position: relative;
+        @include relative-position;
         font-size: 24px;
         margin-top: 10px;
     }
     &.grid>.cu-item span {
-        display: block;
+        @include block-display;
         color: #888;
         margin-top: 5px;
         line-height: 20px;
@@ -191,16 +191,16 @@
         content: " ";
         width: 200%;
         height: 200%;
-        position: absolute;
+        @include absolute-position;
         top: 0;
         left: 0;
-        border-radius: inherit;
+        border-radius: $inherit;
         transform: scale(0.5);
         transform-origin: 0 0;
-        pointer-events: none;
-        box-sizing: border-box;
-        border-right: 1px solid rgba(0, 0, 0, 0.1);
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        pointer-events: $none;
+        @include box-border;
+        border-right: $border(1px, solid, rgba(0, 0, 0, 0.1));
+        border-bottom: $border(1px, solid, rgba(0, 0, 0, 0.1));
     }
     &.grid.col-3>.cu-item:nth-child(3n)::after {
         border-right-width: 0px;

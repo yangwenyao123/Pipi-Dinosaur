@@ -1,34 +1,33 @@
 /* ==================
          时间轴
  ==================== */
-
  .cu-timeline {
-    display: block;
-    background: #fff;
+    @include block-display;
+    background: $color-fff;
     .cu-time {
         width: 130px;
         text-align: left;
         text-indent: 1rem;
         padding: 10px 0;
         font-size: 13px;
-        color: #888;
-        display: block;
+        color: $color-888;
+        @include block-display;
     }
     &>.cu-item {
         padding: 15px 15px 15px 60px;
-        position: relative;
-        display: block;
+        @include relative-position;
+        @include block-display;
         z-index: 0;
     }
     &>.cu-item:not([class*="text-"]) {
-        color: #ccc;
+        color: $color-ccc;
     }
     &>.cu-item::after {
         content: "";
-        display: block;
-        position: absolute;
+        @include block-display;
+        @include absolute-position;
         width: 1px;
-        background: #ddd;
+        background: $color-ddd;
         left: 30px;
         height: 100%;
         top: 0;
@@ -36,14 +35,14 @@
     }
     &>.cu-item::before {
         font-family: "iconfont";
-        display: block;
-        position: absolute;
+        @include block-display;
+        @include absolute-position;
         top: 18px;
         z-index: 9;
-        background: #fff;
+        background: $color-fff;
         width: 25px;
         height: 25px;
-        text-align: center;
+        @include center-text-align;
         border: none;
         line-height: 25px;
         left: 18px;
@@ -52,10 +51,10 @@
         content: "\e763";
     }
     &>.cu-item[class*="icon"]::before {
-        background: #fff;
+        background: $color-fff;
         width: 25px;
         height: 25px;
-        text-align: center;
+        @include center-text-align;
         border: none;
         line-height: 25px;
         left: 18px;
@@ -64,12 +63,12 @@
         padding: 15px;
         border-radius: 3px;
         font-size: 14px;
-        display: block;
+        @include block-display;
         line-height: 1.6;
     }
     &>.cu-item>.content:not([class*="bg-"]) {
-        background: #f1f1f1;
-        color: #666;
+        background: $color-f1f1f1;
+        color: $color-666;
     }
     &>.cu-item>.content+.content {
         margin-top: 10px;
