@@ -1,5 +1,3 @@
-
-
 export function deepClone(obj) {
     if (Array.isArray(obj)) {
       return obj.map(item => deepClone(item));
@@ -10,10 +8,10 @@ export function deepClone(obj) {
     return obj;
   }
 
-  export function deepAssign(to, from) {
-    Object.keys(from).forEach(key => {
-      assignKey(to, from, key);
-    });
-  
-    return to;
-  }
+export function deepAssign(to, from) {
+  Object.keys(from).forEach(key => {
+    assignKey(to, from, key);
+  });
+
+  return to;
+}

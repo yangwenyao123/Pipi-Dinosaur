@@ -53,14 +53,15 @@ export default {
   }
 }
 </script>
-<style lang="sass">
-body
+<style lang="scss">
+body{
   background: #f1f1f1
+}
 
-#app
+#app{
   margin-bottom: 80px
+}
 
-@import 'assets/app.css'
-@import '../packages/theme/index.scss'
+@import '../packages/theme/index.scss';
 
 </style>
