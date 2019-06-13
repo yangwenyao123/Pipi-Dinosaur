@@ -23,7 +23,7 @@
         @include black-box-shadow;
         top: 0;
         left: 0;
-        border: $border(2px, solid, currentColor);
+        border: 1px solid currentColor;
         transform: scale(0.5);
         transform-origin: 0 0;
         @include box-border;

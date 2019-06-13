@@ -1,4 +1,13 @@
 $weuiDialogBackgroundColor : #FFF;
+$weuiDialogGapWidth: 12px;
+$weuiTextColorTitle:  rgba(0,0,0,.9);
+$weuiTextColorDesc: rgba(0,0,0,.5);
+$weuiBgColorActive: #ECECEC;
+$weuiDialogBackgroundColor: #FFFFFF;
+$weuiDialogLineColor: rgba(0,0,0,.1);
+$weuiLinkColorDefault: #576B95;
+$weuiDialogLinkColor: $weuiLinkColorDefault;
+$weuiDialogLinkActiveBc: $weuiBgColorActive;
 .weui-mask {
     position: fixed;
     z-index: 1000;
@@ -16,101 +25,30 @@ $weuiDialogBackgroundColor : #FFF;
     left: 16px;
     right: 16px;
     transform: translate(0, -50%);
-
-    background-color: @weuiDialogBackgroundColor;
+    background-color: $weuiDialogBackgroundColor;
     text-align: center;
     border-radius: 3px;
     overflow: hidden;
 }
-
-@weuiDialogGapWidth: 12px;
-
-@weuiTextColorTitle:  rgba(0,0,0,.9);
-
-
-@weuiTextColorDesc: rgba(0,0,0,.5);
-@weuiBgColorActive: #ECECEC;
-@weuiDialogBackgroundColor: #FFFFFF;
-@weuiDialogLineColor: rgba(0,0,0,.1);
-@weuiLinkColorDefault: #576B95;
-@weuiDialogLinkColor: @weuiLinkColorDefault;
-@weuiDialogLinkActiveBc: @weuiBgColorActive;
-
 .weui-dialog__hd {
-    padding: 16px @weuiDialogGapWidth 16px;
+    padding: 16px $weuiDialogGapWidth 16px;
 }
 .weui-dialog__title {
     font-size: 17px;
     line-height:1.4;
 }
 .weui-dialog__bd {
-    padding: 0 @weuiDialogGapWidth 16px;
+    padding: 0 $weuiDialogGapWidth 16px;
     min-height: 40px;
     font-size: 16px;
     line-height: 1.4;
     word-wrap: break-word;
     word-break: break-all;
-    color: @weuiTextColorDesc;
+    color: $weuiTextColorDesc;
     &:first-child{
-        padding:16px @weuiDialogGapWidth;
-        color:@weuiTextColorTitle;
+        padding:16px $weuiDialogGapWidth;
+        color: $weuiTextColorTitle;
     }
-}
-
-.setTopLine(@c: #C7C7C7) {
-    content: " ";
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    height: 1px;
-    border-top: 1px solid @c;
-    color: @c;
-    transform-origin: 0 0;
-    transform: scaleY(0.5);
-}
-
-.setBottomLine(@c: #C7C7C7) {
-    content: " ";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    height: 1px;
-    border-bottom: 1px solid @c;
-    color: @c;
-    transform-origin: 0 100%;
-    transform: scaleY(0.5);
-}
-
-.setLeftLine(@c: #C7C7C7) {
-    content: " ";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 1px;
-    bottom: 0;
-    border-left: 1px solid @c;
-    color: @c;
-    transform-origin: 0 0;
-    transform: scaleX(0.5);
-}
-
-.setRightLine(@c: #C7C7C7) {
-    content: " ";
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 1px;
-    bottom: 0;
-    border-right: 1px solid @c;
-    color: @c;
-    transform-origin: 100% 0;
-    transform: scaleX(0.5);
-}
-
-.setTapColor(@c:rgba(0,0,0,0)) {
-    -webkit-tap-highlight-color: @c;
 }
 .weui-dialog__ft {
     position: relative;
@@ -119,22 +57,37 @@ $weuiDialogBackgroundColor : #FFF;
     display: flex;
     &:after {
         content: " ";
-        .setTopLine(@weuiDialogLineColor);
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        height: 1px;
+        border-top: 1px solid rgba(0,0,0,.1);
+        color: rgba(0,0,0,.1);
+        transform-origin: 0 0;
+        transform: scaleY(0.5);
     }
 }
 .weui-dialog__btn {
     display: block;
     flex: 1;
     text-decoration: none;
-    .setTapColor(@weuiDialogLineColor);
     &:active {
-        background-color: @weuiDialogLinkActiveBc;
+        background-color: $weuiDialogLinkActiveBc;
     }
-
     position: relative;
     &:after {
         content: " ";
-        .setLeftLine(@weuiDialogLineColor);
+        content: " ";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 1px;
+        bottom: 0;
+        border-left: 1px solid rgba(0,0,0,.1);
+        color: rgba(0,0,0,.1);
+        transform-origin: 0 0;
+        transform: scaleX(0.5);
     }
     &:first-child {
         &:after {
@@ -143,7 +96,7 @@ $weuiDialogBackgroundColor : #FFF;
     }
 }
 .weui-dialog__btn_default {
-    color: @weuiTextColorTitle;
+    color: $weuiTextColorTitle;
 }
 
 .weui-skin_android{
@@ -159,18 +112,18 @@ $weuiDialogBackgroundColor : #FFF;
         text-align: left;
     }
     .weui-dialog__bd{
-        color:@weuiTextColorDesc;
+        color:$weuiTextColorDesc;
         font-size: 17px;
         text-align: left;
         &:first-child{
-            color:@weuiTextColorTitle;
+            color:$weuiTextColorTitle;
         }
     }
     .weui-dialog__ft{
         display: block;
         text-align: right;
         line-height: 40px;
-        padding:0 @weuiDialogGapWidth 16px;
+        padding:0 $weuiDialogGapWidth 16px;
         &:after{
             display: none;
         }
@@ -187,7 +140,7 @@ $weuiDialogBackgroundColor : #FFF;
         }
     }
     .weui-dialog__btn_default {
-        color: @weuiTextColorTitle;
+        color: $weuiTextColorTitle;
     }
 }
 

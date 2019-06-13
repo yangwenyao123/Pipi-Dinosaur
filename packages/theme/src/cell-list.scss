@@ -30,7 +30,7 @@
             transform-origin: 0 0;
             pointer-events: $none;
             @include box-border;
-            border-bottom: 0.5px solid #ddd;
+            border-bottom: 1px solid #ddd;
         }
     }
     &.menu.sm-border>.cu-item:after {
@@ -187,7 +187,7 @@
         right: auto;
         margin-left: 20px;
     }
-    &.grid>.cu-item::after {
+    &.grid>.cu-item:after {
         content: " ";
         width: 200%;
         height: 200%;
@@ -199,16 +199,27 @@
         transform-origin: 0 0;
         pointer-events: $none;
         @include box-border;
-        border-right: $border(1px, solid, rgba(0, 0, 0, 0.1));
-        border-bottom: $border(1px, solid, rgba(0, 0, 0, 0.1));
+        border-right: 1px solid rgba(0, 0, 0, 0.1);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        // content: " ";
+        // position: absolute;
+        // left: 0;
+        // top: 0;
+        // right: 0;
+        // height: 1px;
+        // border-bottom: 1px solid rgba(0,0,0,.1);
+        // border-right: 1px solid rgba(0, 0, 0, 0.1);
+        // color: rgba(0,0,0,.1);
+        // transform-origin: 0 0;
+        // transform: scaleY(0.5);
     }
-    &.grid.col-3>.cu-item:nth-child(3n)::after {
+    &.grid.col-3>.cu-item:nth-child(3n):after {
         border-right-width: 0px;
     }
-    &.grid.col-4>.cu-item:nth-child(4n)::after {
+    &.grid.col-4>.cu-item:nth-child(4n):after {
         border-right-width: 0px;
     }
-    &.grid.col-5>.cu-item:nth-child(5n)::after {
+    &.grid.col-5>.cu-item:nth-child(5n):after {
         border-right-width: 0px;
     }
     &.grid.no-border {
@@ -218,7 +229,7 @@
         padding-top: 10px;
         padding-bottom: 20px;
     }
-    &.grid.no-border>.cu-item::after {
+    &.grid.no-border>.cu-item:after {
         border: none;
     }
 }

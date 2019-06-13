@@ -1,11 +1,5 @@
 <template>
   <div class="demo">
-    <div class="cu-bar search bg-white">
-      <div class='search-form round'>
-        <span class="icon-search round"></span>
-        <input type="text" placeholder="搜索组件" />
-      </div>
-    </div>
     <div class="cu-list grid col-3">
       <div class="cu-item" v-for="(item, index) in componentss" :key="index" @click="goto(item.url)">
         <Icon :icon="item.icon"/>

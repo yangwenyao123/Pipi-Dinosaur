@@ -162,7 +162,7 @@ export default({
     };
 
     const Toolbar = this.showToolbar && (
-      <div class='cu-bar bg-white solid-bottom solid-top'>
+      <div class='nav-bar bg-white solid-bottom solid-top'>
         {$slots.default || [
           <div class="action text-blue" onClick={this.onCancel}>取消</div>,
           <div class="action text-green" onClick={this.onConfirm}>确定</div>
