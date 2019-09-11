@@ -41,8 +41,7 @@ export default {
         return `col-${this.col}`
       }
     },
-    render(h) {
-
+    render() {
       const { contentImg }  = this;
         const action = (
           <div class={['text-gray', this.dynamic === true ? 'text-right padding'  : '']}>
@@ -56,11 +55,11 @@ export default {
             <div class="cu-item shadow">
               <div class='image'>
               <img src={contentImg} />
-              <div class='cu-bar bg-shadeBottom'>{this.content}</div>
+                <div class='cu-bar bg-shadeBottom'>{this.content}</div>
               </div>
               <div class="cu-list menu menu-avatar">
               <div class="cu-item">
-              <div class="cu-avatar round lg" style= { this.initAvtar}></div>
+              <div class="cu-avatar round lg" style={this.initAvtar}></div>
                   <div class='content flex-sub'>
                   <div class='text-grey'>{this.name}</div>
                   <div class='text-gray text-sm  flex justify-between'>
@@ -91,7 +90,7 @@ export default {
               {this.content}
               </div>
               <div class={['grid grid-square flex-sub padding-lr','col-'+ this.col ]}>
-              {Array.isArray(this.contentImg) === true ? contentImg.map((item, index) => (
+              {Array.isArray(this.contentImg) === true ? contentImg.map((item) => (
                   <div class="bg-img only-img" style={[{backgroundImage: 'url(' + item + ')'}]}>
                   </div> 
               )) : ''}
@@ -104,7 +103,7 @@ export default {
             </div>
           </div>
         )
-        
+
       return (
         <div>
           { this.cardStyle === false?  ordinary: dynamic}

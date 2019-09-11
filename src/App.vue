@@ -10,7 +10,6 @@
   </div>
 </template>
 <script>
-import { setInterval } from 'timers';
 const tabbarRoute = ['/', '/demo', '/about'];
 export default {
   data() {
@@ -55,7 +54,9 @@ export default {
 </script>
 <style lang="scss">
 body{
-  background: #f1f1f1
+  background: #f1f1f1;
+  margin: 0px;
+  padding: 0px;
 }
 
 #app{

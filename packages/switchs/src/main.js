@@ -37,7 +37,7 @@ export default {
         style={style}
         onClick={this.click}
       >
-      <div class='switch__node'></div>
+        <div class='switch__node'></div>
       </div>
     );
   }

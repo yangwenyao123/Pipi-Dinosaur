@@ -115,7 +115,7 @@ $inherit: inherit;
 
 $shadowSize: 3px 3px 4px;
 
-/* -- 各种颜色类 --  */  
+/* -- 各种颜色类 --  */
 $color_vaue:(name: red, color: #e54d42, light: #fadbd9, gradual: linear-gradient(45deg, #f43f3b, #ec008c), shadow: rgba(204, 69, 59, 0.2)),
             (name: orange, color: #f37b1d, light: #fde6d2, gradual: linear-gradient(45deg, #ff9700, #ed1c24), shadow: rgba(217, 109, 26, 0.2)),
             (name: yellow, color: #fbbd08, light: #fef2ce, gradual: none, shadow: rgba(224, 170, 7, 0.2)),
@@ -453,7 +453,7 @@ $font_size: (name: xs, value: 10px),
 }
 
 .self-center {
-    align-self: flex-center;
+    align-self: center;
 }
 
 .self-end {

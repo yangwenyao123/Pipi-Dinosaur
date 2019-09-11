@@ -1,7 +1,3 @@
-/**
- * Vue Router support
- */
-
 export function route(router, config) {
     const { to, url, replace } = config;
     if (to && router) {
