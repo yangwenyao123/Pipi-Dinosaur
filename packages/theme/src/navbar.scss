@@ -1,0 +1,103 @@
+// /* ==================
+//           导航栏
+//  ==================== */
+ .nav-bar {
+    @include flex-display;
+    @include relative-position;
+    align-items: center;
+    
+    min-height: 50px;
+    justify-content: space-between;
+    .action {
+        @include flex-display;
+        @include center-align-items;
+        height: 100%;
+        @include center-justify-content;
+        max-width: 100%;
+        &.sub-title {
+            @include relative-position;
+            top: -0.1rem;
+        }
+        &.sub-title p {
+            @include relative-position;
+            z-index: 1;
+        }
+        &.sub-title p[class*="bg-"]:last-child {
+            @include absolute-position;
+            @include inline-block-display;
+            bottom: -0.1rem;
+            border-radius: 3px;
+            width: 100%;
+            height: 0.3rem;
+            left: 0.3rem;
+            opacity: 0.3;
+            z-index: 0;
+        }
+        &.sub-title p[class*="text-"]:last-child {
+            @include absolute-position;
+            @include inline-block-display;
+            bottom: -0.35rem;
+            left: 0.25rem;
+            opacity: 0.2;
+            z-index: 0;
+            text-align: right;
+            font-weight: 900;
+            font-size: 18px;
+        }
+        &:first-child {
+            margin-left: 15px;
+            font-size: 15px;
+        }
+        span.text-cut {
+            text-align: left;
+            width: 100%;
+        }
+        &:first-child>span[class*="icon"] {
+            margin-left: -0.3em;
+            margin-right: 0.3em;
+        }
+        &:last-child {
+            margin-right: 15px;
+        }
+    }
+    .cu-avatar{
+        &:first-child {
+            margin-left: 20px;
+        }
+    }
+    .content {
+        @include absolute-position;
+        @include center-text-align;
+        width: 200px;
+        left: 0;
+        right: 0;
+        bottom: 10px;
+        margin: auto;
+        height: 30px;
+        font-size: 16px;
+        line-height: 30px;
+        color: $color-fff;
+        cursor: $none;
+        pointer-events: $none;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        @include hidden-overflow;
+    }
+}
+
+.cu-bar.justify-center .action.border-title text:last-child,
+.cu-bar.justify-center .action.sub-title text:last-child {
+    left: 0;
+    right: 0;
+    margin: auto;
+    @include center-text-align;
+}
+
+.cu-bar .action>span[class*="icon"],
+.cu-bar .action>div[class*="icon"] {
+    font-size: 18px;
+}
+
+.cu-bar .action>span[class*="icon"]+span[class*="icon"] {
+    margin-left: 0.5em;
+}
