@@ -1,0 +1,54 @@
+
+.cu-avatar {
+    font-variant: small-caps;
+    margin: 0;
+    padding: 0;
+    display: inline-flex;
+    @include center-text-align; 
+    justify-content: center;
+    align-items: center;
+    background: $color-ccc;
+    color: $color-fff;
+    white-space: nowrap;
+    @include relative-position; 
+    width: 32px;
+    height: 32px;
+    background-size: cover;
+    background-position: center;
+    vertical-align: middle;
+    font-size: 0.75em;
+    &.sm {
+        width: 24px;
+        height: 24px;
+        font-size: .5em;
+    }
+    &.lg {
+        width: 48px;
+        height: 48px;
+        font-size: 1em;
+    }
+    &.xl {
+        width: 64px;
+        height: 64px;
+        font-size: 1.25em;
+    }
+    .avatar-text {
+        font-size: 0.2em;
+    }
+}
+
+.cu-avatar-group {
+    direction: rtl;
+    unicode-bidi: bidi-override;
+    padding: 0 10px 0 20px;
+    @include inline-block-display;
+    .cu-avatar {
+        margin-left: -14px;
+        border: $border(2px,solid,$color-f1f1f1); ;
+        vertical-align: middle;
+    }
+    .cu-avatar.sm {
+        margin-left: -10px;
+        border:  $border(1px,solid,$color-f1f1f1);
+    }
+}

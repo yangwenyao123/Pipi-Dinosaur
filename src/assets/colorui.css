@@ -1,0 +1,476 @@
+/*
+  Color UI v2.0.6 | by 文晓港 
+  仅供学习交流，如作它用所承受的法律责任一概与作者无关   
+  （QQ交流群：240787041）
+  文档：http://www.color-ui.com/
+*/
+
+
+/* ==================
+        初始化
+ ==================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.round {
+    border-radius: 500000px;
+}
+
+.radius {
+    border-radius: 6px;
+}
+
+
+/* ==================
+          图片
+ ==================== */
+
+img {
+    max-width: 100%;
+    display: inline-block;
+    position: relative;
+    z-index: 0;
+}
+
+img.loading::before {
+    content: "";
+    background: #f5f5f5;
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+img.loading::after {
+    content: "\e7f1";
+    font-family: "iconfont";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    font-size: 32px;
+    margin: auto;
+    color: #ccc;
+    -webkit-animation: icon-spin 2s infinite linear;
+    animation: icon-spin 2s infinite linear;
+    display: block;
+}
+
+.response {
+    width: 100%;
+}
+
+
+/* -- 阴影 -- */
+
+
+
+/* ==================
+         导航栏
+ ==================== */
+
+.nav {
+    white-space: nowrap;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.nav .cu-item {
+    height: 90px;
+    display: inline-block;
+    line-height: 90px;
+    margin: 0 10px;
+    padding: 0 20px;
+}
+
+.nav .cu-item.cur {
+    border-bottom: 4px solid;
+}
+
+
+
+/* ==================
+         聊天
+ ==================== */
+
+.cu-chat {
+    display: flex;
+    flex-direction: column;
+}
+
+.cu-chat .cu-item {
+    display: flex;
+    padding: 30px 30px 70px;
+    position: relative;
+}
+
+.cu-chat .cu-item>.cu-avatar {
+    width: 80px;
+    height: 80px;
+}
+
+.cu-chat .cu-item>.main {
+    max-width: calc(100% - 260px);
+    margin: 0 40px;
+    display: flex;
+    align-items: center;
+}
+
+.cu-chat .cu-item>img {
+    height: 320px;
+}
+
+.cu-chat .cu-item>.main .content {
+    padding: 20px;
+    border-radius: 6px;
+    display: inline-flex;
+    max-width: 100%;
+    align-items: center;
+    font-size: 30px;
+    position: relative;
+    min-height: 80px;
+    line-height: 40px;
+    text-align: left;
+}
+
+.cu-chat .cu-item>.main .content:not([class*="bg-"]) {
+    background: #fff;
+    color: #666;
+}
+
+.cu-chat .cu-item .date {
+    position: absolute;
+    font-size: 24px;
+    color: #aaa;
+    width: calc(100% - 320px);
+    bottom: 20px;
+    left: 160px;
+}
+
+.cu-chat .cu-item .action {
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+}
+
+.cu-chat .cu-item>.main .content::after {
+    content: "";
+    top: 27px;
+    transform: rotate(45deg);
+    position: absolute;
+    z-index: 100;
+    display: inline-block;
+    overflow: hidden;
+    width: 24px;
+    height: 24px;
+    left: -12px;
+    right: initial;
+    background-color: inherit;
+}
+
+.cu-chat .cu-item.self>.main .content::after {
+    left: auto;
+    right: -12px;
+}
+
+.cu-chat .cu-item>.main .content::before {
+    content: "";
+    top: 30px;
+    transform: rotate(45deg);
+    position: absolute;
+    z-index: -1;
+    display: inline-block;
+    overflow: hidden;
+    width: 24px;
+    height: 24px;
+    left: -12px;
+    right: initial;
+    background-color: inherit;
+    filter: blur(5px);
+    opacity: 0.3;
+}
+
+.cu-chat .cu-item>.main .content:not([class*="bg-"])::before {
+    background-color: #333;
+    opacity: 0.1;
+}
+
+.cu-chat .cu-item.self>.main .content::before {
+    left: auto;
+    right: -12px;
+}
+
+.cu-chat .cu-item.self {
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.cu-chat .cu-info {
+    display: inline-block;
+    margin: 20px auto;
+    font-size: 24px;
+    padding: 8px 12px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    color: #fff;
+    max-width: 400px;
+    line-height: 1.4;
+}
+
+/* ==================
+          步骤条
+ ==================== */
+/* 
+.cu-steps {
+    display: flex;
+}
+
+scroll-div.cu-steps {
+    display: block;
+    white-space: nowrap;
+}
+
+scroll-div.cu-steps .cu-item {
+    display: inline-block;
+}
+
+.cu-steps .cu-item {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    min-width: 100px;
+}
+
+.cu-steps .cu-item:not([class*="text-"]) {
+    color: #aaa;
+}
+
+.cu-steps .cu-item [class*="icon"],
+.cu-steps .cu-item .num {
+    display: block;
+    font-size: 40px;
+    line-height: 80px;
+}
+
+.cu-steps .cu-item::before,
+.cu-steps .cu-item::after,
+.cu-steps.steps-arrow .cu-item::before,
+.cu-steps.steps-arrow .cu-item::after {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 0px;
+    width: calc(100% - 80px);
+    border-bottom: 1px solid #ccc;
+    left: calc(0px - (100% - 80px) / 2);
+    top: 40px;
+    z-index: 0;
+}
+
+.cu-steps.steps-arrow .cu-item::before,
+.cu-steps.steps-arrow .cu-item::after {
+    content: "\e6a3";
+    font-family: 'iconfont';
+    height: 30px;
+    border-bottom-width: 0px;
+    line-height: 30px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    color: #ccc;
+}
+
+.cu-steps.steps-bottom .cu-item::before,
+.cu-steps.steps-bottom .cu-item::after {
+    bottom: 40px;
+    top: initial;
+}
+
+.cu-steps .cu-item::after {
+    border-bottom: 1px solid currentColor;
+    width: 0px;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.cu-steps .cu-item[class*="text-"]::after {
+    width: calc(100% - 80px);
+    color: currentColor;
+}
+
+.cu-steps .cu-item:first-child::before,
+.cu-steps .cu-item:first-child::after {
+    display: none;
+}
+
+.cu-steps .cu-item .num {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    line-height: 40px;
+    margin: 20px auto;
+    font-size: 24px;
+    border: 1px solid currentColor;
+    position: relative;
+    overflow: hidden;
+}
+
+.cu-steps .cu-item[class*="text-"] .num {
+    background-color: currentColor;
+}
+
+.cu-steps .cu-item .num::before,
+.cu-steps .cu-item .num::after {
+    content: attr(data-index);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    transition: all 0.3s ease-in-out 0s;
+    transform: translateY(0px);
+}
+
+.cu-steps .cu-item[class*="text-"] .num::before {
+    transform: translateY(-40px);
+    color: #fff;
+}
+
+.cu-steps .cu-item .num::after {
+    transform: translateY(40px);
+    color: #fff;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.cu-steps .cu-item[class*="text-"] .num::after {
+    content: "\e645";
+    font-family: 'iconfont';
+    color: #fff;
+    transform: translateY(0px);
+}
+
+.cu-steps .cu-item[class*="text-"] .num.err::after {
+    content: "\e646";
+}
+
+
+
+.shadow[class*="-red"] {
+    box-shadow: 6px 6px 8px rgba(204, 69, 59, 0.2);
+}
+
+.shadow[class*="-orange"] {
+    box-shadow: 6px 6px 8px rgba(217, 109, 26, 0.2);
+}
+
+.shadow[class*="-yellow"] {
+    box-shadow: 6px 6px 8px rgba(224, 170, 7, 0.2);
+}
+
+.shadow[class*="-olive"] {
+    box-shadow: 6px 6px 8px rgba(124, 173, 55, 0.2);
+}
+
+.shadow[class*="-green"] {
+    box-shadow: 6px 6px 8px rgba(48, 156, 63, 0.2);
+}
+
+.shadow[class*="-cyan"] {
+    box-shadow: 6px 6px 8px rgba(28, 187, 180, 0.2);
+}
+
+.shadow[class*="-blue"] {
+    box-shadow: 6px 6px 8px rgba(0, 102, 204, 0.2);
+}
+
+.shadow[class*="-purple"] {
+    box-shadow: 6px 6px 8px rgba(88, 48, 156, 0.2);
+}
+
+.shadow[class*="-mauve"] {
+    box-shadow: 6px 6px 8px rgba(133, 33, 150, 0.2);
+}
+
+.shadow[class*="-pink"] {
+    box-shadow: 6px 6px 8px rgba(199, 50, 134, 0.2);
+}
+
+.cu-btn.shadow[class*="-brown"] {
+    box-shadow: 3px 3px 4px rgba(140, 88, 53, 0.2);
+}
+
+.cu-btn.shadow[class*="-grey"] {
+    box-shadow: 3px 3px 4px rgba(114, 130, 138, 0.2);
+}
+
+.cu-btn.shadow[class*="-gray"] {
+    box-shadow: 3px 3px 4px rgba(114, 130, 138, 0.2);
+}
+
+.cu-btn.shadow[class*="-black"] {
+    box-shadow: 3px 3px 4px rgba(26, 26, 26, 0.2);
+}
+
+.bg-img {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.bg-mask {
+    background-color: #333;
+    position: relative;
+}
+
+.bg-mask::after {
+    content: "";
+    border-radius: inherit;
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+}
+
+.bg-mask div,
+.bg-mask cover-div {
+    z-index: 5;
+    position: relative;
+}
+
+.bg-mask>cover-div {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.bg-video {
+    position: relative;
+}
+
+.bg-video video {
+    display: block;
+    height: 100%;
+    width: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    z-index: 0;
+    pointer-events: none;
+} */
+
