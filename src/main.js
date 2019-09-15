@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import App from './App.vue'
 
-import { Icon } from '../packages';
-Vue.use(Icon);
+import { icon, navBar } from '../packages';
+Vue.use(icon);
+Vue.use(navBar);
+
 
 Vue.config.productionTip = false
 

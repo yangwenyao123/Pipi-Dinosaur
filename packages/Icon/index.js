@@ -1,5 +1,5 @@
 export default {
-    name: 'Icon',
+    name: 'icon',
     props: {
         icon: String,
         size: String,
@@ -7,8 +7,11 @@ export default {
     },
     render() {
         const { icon, color, size } = this;
+        const styleed = {
+            'font-size': size
+        }
         return (
-            <span style={size} class={[icon, color]}>123</span>
+            <span style={styleed} class={[icon, color]}></span>
         )
     }
 }
