@@ -1,9 +1,11 @@
 import Vue from 'vue';
 import icon from './icon';
 import tag from './tag';
-import navBar from './navBar';
+import navBar from './nav-bar';
 import tabbar from './tabbar';
 import tabbarItem from './tabbar-item';
+import cell from './cell';
+import cellGroup from './cell-group';
 
 const version = '0.1.1';
 const components = [
@@ -11,7 +13,9 @@ const components = [
     tag,
     navBar,
     tabbar,
-    tabbarItem
+    tabbarItem,
+    cell,
+    cellGroup
 ];
 
 components.forEach(Component => {
@@ -25,4 +29,6 @@ export {
   navBar,
   tabbar,
   tabbarItem,
+  cell,
+  cellGroup
 };

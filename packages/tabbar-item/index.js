@@ -1,8 +1,10 @@
 
 import icon from '../icon';
+import { route, routeProps } from '../utils/router'
 export default {
   name: 'tabbar-item',
   props: {
+    ...routeProps,
     icon: String,
     dot: Boolean,
     info: [String, Number]
@@ -23,14 +25,13 @@ export default {
   destroyed() {
     this.$parent.items.splice(this.$parent.items.indexOf(this), 1);
   },
-
   methods: {
     onClick(event) {
       this.$parent.onChange(this.$parent.items.indexOf(this));
       this.$emit('click', event);
+      route(this.$router, this);
     }
   },
-
   render() {
     const { icon, $slots, active } = this;
     const avtive = active ? this.$parent.activeColor + ' action' : 'action text-gray';

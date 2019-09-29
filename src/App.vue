@@ -5,8 +5,15 @@
     <tabbar v-if="show" v-model="active" fixed :activeColor="'text-green'" :bgColor="'bg-black'">
       <tabbar-item icon="icon-homefill" to="/">介绍</tabbar-item>
       <tabbar-item icon="icon-similar" to="/demo">Demo</tabbar-item>
-      <tabbar-item icon="icon-profile" to="/about">关于</tabbar-item>
+      <tabbar-item icon="icon-profile" url="http://www.baidu.com">关于</tabbar-item>
     </tabbar>
+
+    <cell-group class="margin-top">
+        <cell title="关于组件库" color="text-green" to="/Introduce" icon="icon-tagfill" arrow></cell>
+        <cell title="github" color="text-blue" url="https://github.com/martin-yin/Pipi-Dinosaur" icon="icon-github" arrow></cell>
+        <cell title="掘金" color="text-blue" url="https://juejin.im/user/5a0aa433f265da432002c33c/posts" arrow></cell>
+        <cell title="意见反馈" color="text-cyan" icon="icon-writefill" to="/feedback" arrow></cell>
+    </cell-group>
   </div>
 </template>
 <script>

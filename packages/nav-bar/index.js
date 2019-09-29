@@ -1,5 +1,4 @@
 export const noop = () => {
-
 }
 export default {
     name: 'nav-bar',
