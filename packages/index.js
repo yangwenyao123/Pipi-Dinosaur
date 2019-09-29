@@ -6,6 +6,8 @@ import tabbar from './tabbar';
 import tabbarItem from './tabbar-item';
 import cell from './cell';
 import cellGroup from './cell-group';
+import timeLine from './time-line';
+import picker from './picker';
 
 const version = '0.1.1';
 const components = [
@@ -15,7 +17,9 @@ const components = [
     tabbar,
     tabbarItem,
     cell,
-    cellGroup
+    cellGroup,
+    timeLine,
+    picker
 ];
 
 components.forEach(Component => {
@@ -30,5 +34,7 @@ export {
   tabbar,
   tabbarItem,
   cell,
-  cellGroup
+  cellGroup,
+  timeLine,
+  picker
 };
