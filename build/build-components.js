@@ -8,9 +8,8 @@ const babelConfig = {
   configFile: path.join(__dirname, '../babel.config.js')
 };
 
-const scriptRegExp = /\.(js|ts|tsx)$/;
+const scriptRegExp = /\.(js)$/;
 const isDir = dir => fs.lstatSync(dir).isDirectory();
-const isCode = path => !/(demo|test|\.md)$/.test(path);
 const isScript = path => scriptRegExp.test(path);
 
 function compile(dir) {
@@ -19,17 +18,10 @@ function compile(dir) {
   files.forEach(file => {
     const filePath = path.join(dir, file);
 
-    // remove unnecessary files
-    if (!isCode(file)) {
-      return fs.removeSync(filePath);
-    }
-
-    // scan dir
     if (isDir(filePath)) {
       return compile(filePath);
     }
 
-    // compile js or ts
     if (isScript(file)) {
       const { code } = babel.transformFileSync(filePath, babelConfig);
       fs.removeSync(filePath);

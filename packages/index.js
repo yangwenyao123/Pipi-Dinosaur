@@ -8,6 +8,8 @@ import cell from './cell';
 import cellGroup from './cell-group';
 import timeLine from './time-line';
 import picker from './picker';
+import popup from './popup';
+import Dialog from './dialog';
 
 const version = '0.1.1';
 const components = [
@@ -19,11 +21,13 @@ const components = [
     cell,
     cellGroup,
     timeLine,
-    picker
+    picker,
+    popup,
+    Dialog
 ];
 
 components.forEach(Component => {
-    Vue.component(Component.name, Component);
+  Vue.component(Component.name, Component);
 });
 
 export {
@@ -36,5 +40,7 @@ export {
   cell,
   cellGroup,
   timeLine,
-  picker
+  picker,
+  popup,
+  Dialog
 };

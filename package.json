@@ -1,7 +1,11 @@
 {
   "name": "pipi-dinosaur",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.3",
+  "private": false,
+  "description": "this is a new vue mobile ui!",
+  "author": "Martin-Yin",
+  "license": "ISC",
+  "main": "lib/index.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
