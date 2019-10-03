@@ -11,7 +11,7 @@ import picker from './picker';
 import popup from './popup';
 import Dialog from './dialog';
 
-const version = '0.1.1';
+const version = '0.1.6';
 const components = [
     icon,
     tag,
