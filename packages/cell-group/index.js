@@ -1,6 +1,6 @@
 
 export default {
-    name: 'cell-group',
+    name: 'cellGroup',
     render(h) {
       const { $slots } = this;
       return (

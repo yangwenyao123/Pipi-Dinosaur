@@ -1,3 +1,4 @@
+@import '../common/common.scss';
 .nav-bar {
     @include flex-display;
     @include relative-position;

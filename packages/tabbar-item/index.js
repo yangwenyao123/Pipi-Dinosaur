@@ -2,7 +2,7 @@
 import icon from '../icon';
 import { route, routeProps } from '../utils/router'
 export default {
-  name: 'tabbar-item',
+  name: 'tabbarItem',
   props: {
     ...routeProps,
     icon: String,

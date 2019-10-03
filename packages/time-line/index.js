@@ -1,5 +1,5 @@
 export default {
-  name: 'time-line',
+  name: 'timeLine',
   props: {
     time: String,
   },

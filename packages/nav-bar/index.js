@@ -1,7 +1,7 @@
 export const noop = () => {
 }
 export default {
-    name: 'nav-bar',
+    name: 'navBar',
     props: {
         title: String,
         leftText: String,
