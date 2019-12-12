@@ -1,0 +1,59 @@
+.pi-list {
+    &.menu {
+        display: block;
+        overflow: hidden;
+    }
+    &.menu>.pi-item {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 50px;
+        overflow: hidden;
+        background: #fff;
+        padding: 0 15px;
+        font-size: 14px;
+        &:after {
+            content: "";
+            width: 200%;
+            height: 200%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: inherit;
+            transform: scale(0.5);
+            transform-origin: 0 0;
+            pointer-events: none;
+            box-sizing: border-box;
+            border-bottom: 1px solid #ddd;
+        }
+        [class*=icon] {
+            display: inline-block;
+            margin-right: 5px;
+            width: 1.6em;
+            font-size: 16px;
+            text-align: center
+        }
+        &.arrow {
+            padding-right: 45px;
+        }
+        &.arrow::before {
+            font-family: "iconfont";
+            display: block;
+            content: "\e6a3";
+            position: absolute;
+            font-size: 17px;
+            color: #aaaaaa;
+            line-height: 15px;
+            height: 15px;
+            width: 15px;
+            align-items: center;
+            top: 0px;
+            bottom: 0;
+            right: 15px;
+            margin: auto;
+        }
+
+    }
+
+}
